@@ -96,7 +96,7 @@ const rawJoin = async () => {
 }
 
 // rawJoin()
-// displayTables() 
+displayTables() 
 
 // ---------------------------------
 
@@ -119,23 +119,23 @@ const rawJoin = async () => {
 
 const sequelizeJoin = async () => {
     // First, define the models for both tables using Sequelize.define() as shown below:
-    const Invoice2 = sequelize.define(
-        "invoices",
-        { amount: Sequelize.INTEGER },
-        { timestamps: false }
-    );
+    // const Invoice2 = sequelize.define(
+    //     "invoices",
+    //     { amount: Sequelize.INTEGER },
+    //     { timestamps: false }
+    // );
       
-      const User2 = sequelize.define(
-        "Users",
-        { firstName: Sequelize.STRING },
-        { timestamps: false }
-    ); 
+    //   const User2 = sequelize.define(
+    //     "Users",
+    //     { firstName: Sequelize.STRING },
+    //     { timestamps: false }
+    // ); 
 
     // Now that both models are created, you need to call the right a
     // ssociation methods to form the relationship between your two models
 
-    User2.hasMany(Invoice2);
-    Invoice2.belongsTo(User2);
+    User.hasMany(Invoice);
+    Invoice.belongsTo(User);
 
     // With the relationship formed between the models, you can 
     // start querying the data of one model from the other by adding the include option in your query method.
@@ -143,7 +143,7 @@ const sequelizeJoin = async () => {
 
     // Notice how the findAll() method call above has the include: Invoice option.
 
-    const users = await User2.findAll({ include: Invoice2 });
+    const users = await User.findAll({ include: Invoice });
     console.log(JSON.stringify(users, null, 2)); 
 
     // By default, the include option will cause Sequelize to generate an SQL query with the LEFT OUTER JOIN clause.
@@ -157,4 +157,4 @@ const sequelizeJoin = async () => {
     // console.log(JSON.stringify(users, null, 2));
 }
 
-//sequelizeJoin()
+sequelizeJoin()
