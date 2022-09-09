@@ -119,17 +119,6 @@ displayTables()
 
 const sequelizeJoin = async () => {
     // First, define the models for both tables using Sequelize.define() as shown below:
-    // const Invoice2 = sequelize.define(
-    //     "invoices",
-    //     { amount: Sequelize.INTEGER },
-    //     { timestamps: false }
-    // );
-      
-    //   const User2 = sequelize.define(
-    //     "Users",
-    //     { firstName: Sequelize.STRING },
-    //     { timestamps: false }
-    // ); 
 
     // Now that both models are created, you need to call the right a
     // ssociation methods to form the relationship between your two models
